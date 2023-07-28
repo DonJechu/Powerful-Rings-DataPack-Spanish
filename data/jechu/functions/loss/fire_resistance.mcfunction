@@ -1,1 +1,0 @@
-execute as @a at @s run damage @s 1.75 generic
