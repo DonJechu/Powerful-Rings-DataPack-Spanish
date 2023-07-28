@@ -1,0 +1,2 @@
+execute as @p at @s run playsound minecraft:entity.experience_orb.pickup ambient @s ^ ^1 ^1 1 0.5
+execute as @p at @s run tellraw @s ["",{"text":"Debes esperar ","color":"green"},{"text":"5","bold":true,"color":"green"},{"text":" Minutos ","bold":true,"color":"green"},{"text":"a partir de que el efecto se acaba.","color":"green"}]

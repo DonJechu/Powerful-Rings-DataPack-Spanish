@@ -1,0 +1,1 @@
+execute as @p at @s as @a[nbt={HurtTime:9s}] at @s run damage @s 4 generic

@@ -1,0 +1,1 @@
+execute as @p at @s run effect give @s hunger 5 125 true

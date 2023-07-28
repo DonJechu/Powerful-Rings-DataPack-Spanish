@@ -1,0 +1,1 @@
+execute as @a at @s positioned over motion_blocking if entity @s[dy=999] run function jechu:loss/night_vision2
