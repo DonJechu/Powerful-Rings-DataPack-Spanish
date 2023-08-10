@@ -1,0 +1,1 @@
+execute as @p at @s run particle minecraft:ash ~ ~1 ~ 1 1 1 1 250

@@ -1,0 +1,1 @@
+execute as @p at @s run particle minecraft:lava ~ ~ ~ 0.45 0.45 0.45 0.01 3

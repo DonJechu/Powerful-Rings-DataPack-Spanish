@@ -5,6 +5,7 @@ scoreboard players reset @a tpclick
 
 scoreboard objectives add amplificationclick minecraft.used:minecraft.carrot_on_a_stick
 scoreboard players reset @a amplificationclick
+tag @a remove AmplificationTimer
 
 scoreboard objectives add explosiveclick minecraft.used:minecraft.carrot_on_a_stick
 scoreboard players reset @a explosiveclick
@@ -12,9 +13,12 @@ scoreboard players reset @a explosiveclick
 scoreboard objectives add gravityclick minecraft.used:minecraft.carrot_on_a_stick
 scoreboard players reset @a gravityclick
 
+scoreboard objectives add Run minecraft.custom:minecraft.sprint_one_cm
+
 scoreboard objectives add gravity dummy
 
 tag @a remove gravity
+
 
 scoreboard objectives add timer dummy
 
