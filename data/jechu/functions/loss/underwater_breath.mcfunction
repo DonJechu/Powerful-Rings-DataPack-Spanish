@@ -1,0 +1,1 @@
+execute as @a at @s as @a[nbt={HurtTime:9s}] positioned over motion_blocking if entity @s[dy=999] run damage @s 4 generic
