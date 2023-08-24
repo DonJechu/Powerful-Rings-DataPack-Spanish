@@ -52,6 +52,7 @@ execute as @p at @s if entity @p[nbt={Inventory:[{id:"minecraft:globe_banner_pat
 execute as @p at @s[scores={tpclick=1..}, nbt={SelectedItem:{tag:{datos:"tpclick"}},Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Teletransporte","color":"dark_purple"}]'}}}]}] run function jechu:particles/teleport
 execute as @p at @s[scores={tpclick=1..}, nbt={SelectedItem:{tag:{datos:"tpclick"}},Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Teletransporte","color":"dark_purple"}]'}}}]}] run schedule function jechu:particles/teleport_particle_anim/teleport_anim1 5t
 execute at @e[tag=c1] run function jechu:particles/c1
+execute as @p at @s if score @s tpclick matches 1.. run scoreboard players reset @s tpclick
 
 execute as @p at @s[scores={tpclick=1..}, nbt={SelectedItem:{tag:{datos:"tpclick"}},Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:8b,tag:{display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Teletransporte","color":"dark_purple"}]'}}}]}] run schedule function jechu:teleport 4s
 execute as @p at @s[scores={tpclick=1..}, nbt={SelectedItem:{tag:{datos:"tpclick"}},Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:8b,tag:{display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Teletransporte","color":"dark_purple"}]'}}}]}] run scoreboard players reset @s tpclick
@@ -98,3 +99,20 @@ execute as @p at @s[scores={gravityclick=1..}, nbt={SelectedItem:{tag:{datos:"gr
 execute as @p at @s[scores={gravityclick=1..}, nbt={SelectedItem:{tag:{datos:"gravityclick"}},Inventory:[{id:"minecraft:carrot_on_a_stick",tag:{display:{Name:'[{"text":"Anillo de ","italic":false,"color":"gold"},{"text":"Gravedad","color":"white"}]'}}}]}] run scoreboard players reset @s gravityclick
 #PARTICLES
 execute as @a[predicate=jechu:gravity_particles] if entity @p[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:8b,tag:{display:{Name:'[{"text":"Anillo de ","italic":false,"color":"gold"},{"text":"Gravedad","color":"white"}]'}}}]}] at @s run particle minecraft:cloud ~ ~1.6 ~ 0.4 0 0.4 0 1
+
+
+
+#Anillo de Mago
+#SOUNDS
+execute as @p at @s[scores={magic=1}, nbt={SelectedItem:{tag:{datos:"magic"}}, Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:8b,tag:{display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Mago","color":"dark_purple"}]'}}}]}] if score @s HungerLevel matches 20 run playsound minecraft:music.nether.soul_sand_valley ambient @s ~ ~ ~ 2 0.1 1
+execute as @p at @s[scores={magic=1}, nbt={SelectedItem:{tag:{datos:"magic"}}, Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:8b,tag:{display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Mago","color":"dark_purple"}]'}}}]}] if score @s HungerLevel matches 20 run playsound minecraft:weather.rain.above ambient @s ~ ~ ~ 1 0.1 1
+#--------
+execute as @p at @s[tag=magic_anillo] if score @s HungerLevel matches 20 run scoreboard players set @e[tag=raycast_from] raycast.length 60
+execute as @p at @s[tag=magic_anillo] if score @s HungerLevel matches 20 as @e[tag=raycast_from] at @s anchored eyes run function jechu:raycast
+execute as @p at @s[scores={magic=1}, nbt={SelectedItem:{tag:{datos:"magic"}}, Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:8b,tag:{display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Mago","color":"dark_purple"}]'}}}]}] unless score @s HungerLevel matches 20 run function jechu:raycast2
+execute as @p at @s unless score @s HungerLevel matches 20 run scoreboard players reset @s HungerLevel
+execute as @p at @s unless score @s HungerLevel matches 20 run scoreboard players reset @s magic
+execute as @p at @s if score @s magic matches 3.. run scoreboard players reset @s magic
+#Command to give the item:
+##/give @p carrot_on_a_stick{datos:"magic", display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Mago","color":"dark_purple"}]'}} 1
+execute as @p at @s[scores={magic=1}, nbt={SelectedItem:{tag:{datos:"magic"}}, Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:8b,tag:{display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Mago","color":"dark_purple"}]'}}}]}] if score @s HungerLevel matches 20 run function jechu:magic
