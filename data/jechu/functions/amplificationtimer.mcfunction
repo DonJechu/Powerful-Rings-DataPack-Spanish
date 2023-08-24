@@ -1,1 +1,0 @@
-execute as @p at @s run tag @s remove AmplificationTimer
