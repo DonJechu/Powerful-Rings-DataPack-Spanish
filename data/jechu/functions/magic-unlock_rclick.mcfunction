@@ -1,1 +1,0 @@
-item replace entity @e container.8 with carrot_on_a_stick{CustomModelData:12, datos:"magic", display:{Name:'[{"text":"Anillo de","italic":false,"color":"gold"},{"text":" "},{"text":"Mago","color":"dark_purple"}]'}}
